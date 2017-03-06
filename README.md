@@ -4,7 +4,7 @@ Demonstration of how to use the `pg-search-sequelize` library to search a databa
 
 # Demo
 
-Try out this example's demo [here](https://project-demo.herokuapp.com/search).
+Try out this example's demo [here](https://mujz.ca/project/pg-search).
 
 # Run it locally
 
