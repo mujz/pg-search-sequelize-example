@@ -19,7 +19,7 @@ let allowCrossDomain = (req, res, next) => {
 };
 
 app.use(allowCrossDomain);
-app.get('/', (req, res) => res.send("Welcome to the pg-search-sequelize exapmle! Go ahead and search for films by firing your requests at /film/{your query}");
+app.get('/', (req, res) => res.send("Welcome to the pg-search-sequelize exapmle! Go ahead and search for films by firing your requests at /film/{your query}"));
 app.get('/film/:query', (req, res) => models.FilmMaterializedView.searchByText(req.params.query).then(data => res.send(data)));
 app.use((err, req, res, next) => {
   console.error(err.stack); 
