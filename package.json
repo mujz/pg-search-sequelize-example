@@ -1,0 +1,48 @@
+{
+  "name": "sequelize-postgres-search",
+  "version": "0.0.1",
+  "description": "A library that uses sequelize and postgres fulltext search",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:node": "docker start pg-search-sequelize-example-node",
+    "start:db": "docker start pg-search-sequelize-example-db",
+    "start:db:migrate": "sequelize db:migrate --migrations-path ./migrations/ --config ./config/sequelize.js",
+    "start:db:migrate-undo": "sequelize db:migrate:undo --migrations-path ./migrations/ --config ./config/sequelize.js",
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujz/pg-search-sequelize-example.git"
+  },
+  "keywords": [
+    "fulltext",
+    "full-text",
+    "full",
+    "text",
+    "postgresql",
+    "node",
+    "psql",
+    "materialized",
+    "view",
+    "views"
+  ],
+  "author": "Mujtaba Al-Tameemi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mujz/pg-search-sequelize-example/issues"
+  },
+  "homepage": "https://github.com/mujz/pg-search-sequelize-example#readme",
+  "engines": {
+    "node": "6.2.2"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "pg": "~6.1.0",
+    "pg-search-sequelize": "0.0.5",
+    "sequelize": "~3.24.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "~2.4.0"
+  }
+}
