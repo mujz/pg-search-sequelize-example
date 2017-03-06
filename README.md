@@ -1,6 +1,6 @@
 # PG Search Sequelize - Example
 
-Demonstration of how to use the `pg-search-sequelize` library to search a database of films and actors.
+Demonstration of how to use the `pg-search-sequelize` package to search a database of films and actors.
 
 # Demo
 
@@ -16,7 +16,9 @@ To start the server and database with docker, run:
 ./init.sh
 ```
 
-That's it. Now you can open your browser and navigate to the IP address of the `./init.sh` command.
+That's it. Now you can open your browser and navigate to `http://localhost:3000/`.
+
+Test searching by navigating to `http://localhost:3000/film/x-men`. To filter your results by release year, modify your query to `http://localhost:3000/film/x-men releaseYear:2003`. Note that we did not hard code the release year filter; it is automatically provided by the `pg-search-sequelize` package.
 
 # How It Works
 
@@ -28,6 +30,6 @@ Finally, we expose two API `/film/:query` and we start the express server on por
 
 # Next Steps
 
-If you are interested in using this library in your projects, head on over to [pg-search-sequelize](https://github.com/mujz/pg-search-sequelize).
+If you are interested in using this package in your projects, head on over to [pg-search-sequelize](https://github.com/mujz/pg-search-sequelize).
 
 If there's anything you didn't like, or if you have any comments or suggestions, please do submit them in the issues section of [pg-search-sequelize](https://github.com/mujz/pg-search-sequelize)
