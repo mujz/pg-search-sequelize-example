@@ -20,9 +20,14 @@ let allowCrossDomain = (req, res, next) => {
 };
 
 app.use(allowCrossDomain);
-app.use(require('response-time')());
 app.get('/', (req, res) => res.send('Welcome to the pg-search-sequelize exapmle! Go ahead and search for films by firing your requests at /film/{your query}'));
-app.get('/film/:query', (req, res) => models.FilmMaterializedView.searchByText(req.params.query).then(data => res.send(data)));
+app.get('/film/:query', (req, res) => {
+  var start = new Date();
+  models.FilmMaterializedView.searchByText(req.params.query).then(data => {
+    res.header('X-Response-Time', new Date() - start);
+    res.send(data);
+  });
+});
 app.use((err, req, res, next) => {
   console.error(err.stack); 
   res.status(500).send('Well that\'s embarrassing, we tried so hard to understand you, but we just couldn\'t. Please head back to the home page and give us a second chance!');
