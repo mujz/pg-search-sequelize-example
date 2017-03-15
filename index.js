@@ -22,9 +22,9 @@ let allowCrossDomain = (req, res, next) => {
 app.use(allowCrossDomain);
 app.get('/', (req, res) => res.send('Welcome to the pg-search-sequelize exapmle! Go ahead and search for films by firing your requests at /film/{your query}'));
 app.get('/film/:query', (req, res) => {
-  var start = new Date();
+  var start = process.hrtime();
   models.FilmMaterializedView.searchByText(req.params.query).then(data => {
-    res.header('X-Response-Time', new Date() - start);
+    res.header('X-Response-Time', process.hrtime(start)[1]/1000000);
     res.send(data);
   });
 });
